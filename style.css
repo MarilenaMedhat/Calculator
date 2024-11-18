@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* why does the justify and align not place it in the correct spot 
+  why do i need a margin? */
+  margin-top: 5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 70vh;
+  /* align-items: center;
+  justify-content: center; */
+  background-color: #bf9cd5;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2rem;
+  padding: 0.5rem;
+  border: 0.2rem solid #7f6a8d;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
+}
+
+.display {
+  flex: 1;
+  text-align: end;
+  background-color: #ffffffc1;
+  border-radius: 0.5rem;
+  border: 0.2rem solid #7f6a8d;
+}
+
+button {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2rem;
+  border: 0.2rem solid #7f6a8d;
+  border-radius: 0.5rem;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.btn {
+  padding: 1rem;
+  flex: 1;
+}
+
+.btnZero {
+  flex: 2.5;
+  padding: 1rem;
+}
+
+.operator.btn {
+  background-color: #dcc4eb;
+}
