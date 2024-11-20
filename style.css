@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "DS-DIGI";
+  src: url("./fonts/DS-DIGI.TTF") format("truetype");
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -11,18 +16,22 @@ body {
   justify-content: center;
   /* why does the justify and align not place it in the correct spot 
   why do i need a margin? */
-  margin-top: 5rem;
+  margin-top: 4.5rem;
+  background-color: #ffffffc1;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  width: 40vw;
-  height: 70vh;
+  width: 30vw;
+  height: 80vh;
+  min-width: max-content;
+  min-height: max-content;
+
   /* align-items: center;
   justify-content: center; */
-  background-color: #bf9cd5;
-  font-family: "Courier New", Courier, monospace;
+  background-color: #a179b9;
+  font-family: "Orbitron", Courier, monospace;
   font-size: 2rem;
   padding: 0.5rem;
   border: 0.2rem solid #7f6a8d;
@@ -30,20 +39,32 @@ body {
   gap: 0.5rem;
 }
 
-.display {
+.display-container {
+  /*the text is very high up for some reason?  */
+  display: flex;
   flex: 1;
-  text-align: end;
+  align-items: center;
+  justify-content: flex-end;
   background-color: #ffffffc1;
   border-radius: 0.5rem;
   border: 0.2rem solid #7f6a8d;
+  font-family: "DS-DIGI", Courier, monospace;
 }
-
+.display {
+  padding-right: 0.5rem;
+  font-size: 4.5rem;
+}
 button {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Orbitron", Courier, monospace;
   font-size: 2rem;
   border: 0.2rem solid #7f6a8d;
   border-radius: 0.5rem;
+  background-color: #ffffffc1;
 }
+button:hover {
+  filter: brightness(0.95);
+}
+
 .row {
   display: flex;
   align-items: center;
@@ -54,14 +75,30 @@ button {
 
 .btn {
   padding: 1rem;
+  width: 25%;
   flex: 1;
 }
 
 .btnZero {
-  flex: 2.5;
+  /* okay for laptop but weird when smaller same for first row */
+  /* flex: 2; */
+  width: 50%;
   padding: 1rem;
 }
 
 .operator.btn {
-  background-color: #dcc4eb;
+  flex: 1;
+  width: 25%;
+  background-color: #e1c0f4c6;
+}
+
+.extra {
+  padding: 1rem;
+  flex: 1;
+  width: 25%;
+  background-color: #cdb7db;
+}
+
+#period {
+  font-weight: 800;
 }
