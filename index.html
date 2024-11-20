@@ -4,16 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
     <title>Calculator</title>
   </head>
   <body>
     <div class="container">
-      <div class="display">display</div>
+      <div class="display-container"><span class="display"></span></div>
       <div class="numpad">
         <div class="row">
-          <button class="btn" id="clear">C</button>
-          <button class="btn" id="sign">+/-</button>
-          <button class="btn" id="perc">%</button>
+          <button class="extra" id="clear">C</button>
+          <button class="extra" id="sign">+/-</button>
+          <button class="extra" id="perc">%</button>
           <button class="operator btn" id="divide">/</button>
         </div>
         <div class="row">
@@ -37,7 +41,7 @@
         <div class="row">
           <button class="btnZero">0</button>
           <button class="btn" id="period">.</button>
-          <button class="btn" id="equal">=</button>
+          <button class="operator btn" id="equal">=</button>
         </div>
       </div>
     </div>
