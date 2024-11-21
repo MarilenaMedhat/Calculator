@@ -14,7 +14,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 4.5rem;
+  height: 100vh;
   background-color: #ffffffc1;
 }
 
@@ -22,7 +22,6 @@ body {
   display: flex;
   flex-direction: column;
   width: 30vw;
-  height: 80vh;
   min-width: max-content;
   min-height: max-content;
   background-color: #a179b9;
@@ -42,6 +41,7 @@ body {
   background-color: #ffffffc1;
   border-radius: 0.5rem;
   border: 0.2rem solid #7f6a8d;
+  min-height: 7rem;
   font-family: "DS-DIGI", Courier, monospace;
 }
 .display {
@@ -73,7 +73,7 @@ button:hover {
 }
 
 .zero.btn {
-  width: 50%;
+  width: 51%;
   padding: 1rem;
 }
 
