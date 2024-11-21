@@ -6,6 +6,7 @@ let currentInput = "";
 let variableOne = "";
 let variableTwo = "";
 let operator = "";
+let result = "";
 
 function operate(variableOne, variableTwo, operator) {
   switch (operator) {
@@ -57,6 +58,7 @@ operators.forEach((button) => {
         Number(variableTwo),
         operator
       );
+      console.log(result);
       if (String(result).includes(".")) {
         const roundedResult = parseFloat(result.toFixed(6));
         console.log(roundedResult);
@@ -82,8 +84,23 @@ clear.addEventListener("click", () => {
   variableTwo = "";
   operator = "";
 });
-// const sign = document.querySelector("#sign");
-// sign.addEventListener("click", () => {
-//   currentInput = "-" + currentInput;
-//   display.textContent = currentInput;
-// });
+const sign = document.querySelector("#sign");
+sign.addEventListener("click", () => {
+  if (operator === "" && variableTwo === "") {
+    variableOne = String(variableOne);
+    if (variableOne.startsWith("-")) {
+      variableOne = variableOne.slice(1);
+    } else {
+      variableOne = "-" + variableOne;
+    }
+    display.textContent = variableOne;
+  } else if (variableTwo) {
+    variableTwo = String(variableTwo);
+    if (variableTwo.startsWith("-")) {
+      variableTwo = variableTwo.slice(1);
+    } else {
+      variableTwo = "-" + variableTwo;
+    }
+    display.textContent = variableTwo;
+  }
+});
