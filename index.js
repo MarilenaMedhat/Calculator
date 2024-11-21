@@ -57,6 +57,15 @@ operators.forEach((button) => {
         Number(variableTwo),
         operator
       );
+      if (String(result).includes(".")) {
+        const roundedResult = parseFloat(result.toFixed(6));
+        console.log(roundedResult);
+        display.textContent = roundedResult;
+        variableOne = roundedResult;
+        variableTwo = "";
+        operator = "";
+        return;
+      }
       display.textContent = result;
       variableOne = result;
       variableTwo = "";
