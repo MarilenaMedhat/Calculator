@@ -14,8 +14,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* why does the justify and align not place it in the correct spot 
-  why do i need a margin? */
   margin-top: 4.5rem;
   background-color: #ffffffc1;
 }
@@ -27,9 +25,6 @@ body {
   height: 80vh;
   min-width: max-content;
   min-height: max-content;
-
-  /* align-items: center;
-  justify-content: center; */
   background-color: #a179b9;
   font-family: "Orbitron", Courier, monospace;
   font-size: 2rem;
@@ -40,7 +35,6 @@ body {
 }
 
 .display-container {
-  /*the text is very high up for some reason?  */
   display: flex;
   flex: 1;
   align-items: center;
@@ -76,25 +70,21 @@ button:hover {
 .btn {
   padding: 1rem;
   width: 25%;
-  flex: 1;
 }
 
-.btnZero {
-  /* okay for laptop but weird when smaller same for first row */
-  /* flex: 2; */
+.zero.btn {
   width: 50%;
   padding: 1rem;
 }
 
 .operator.btn {
-  flex: 1;
   width: 25%;
   background-color: #e1c0f4c6;
 }
 
 .extra {
   padding: 1rem;
-  flex: 1;
+
   width: 25%;
   background-color: #cdb7db;
 }
