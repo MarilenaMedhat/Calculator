@@ -17,14 +17,27 @@ function operate(variableOne, variableTwo, operator) {
     case "*":
       return variableOne * variableTwo;
     case "/":
+      if (variableTwo === 0) {
+        return (display.textContent = "ntnt");
+      }
       return variableOne / variableTwo;
     default:
       return variableOne;
   }
 }
+// determines variable one and two according to if an operator is pressed or not
+// and sets character limit
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const value = button.textContent;
+    if (result) {
+      variableOne = value;
+      variableTwo = "";
+      result = "";
+      operator = "";
+      display.textContent = value;
+      return;
+    }
     if (!operator) {
       if (variableOne.length >= 7) {
         return;
@@ -44,24 +57,23 @@ buttons.forEach((button) => {
   });
 });
 
+// extracts the operator value
+// if equal is pressed calculates
 operators.forEach((button) => {
   button.addEventListener("click", () => {
     const value = button.textContent;
+
     if ("+*/-".includes(value) && !operator) {
       operator = value;
       //   display.textContent = value;
       return;
     }
     if (value === "=") {
-      const result = operate(
-        Number(variableOne),
-        Number(variableTwo),
-        operator
-      );
-      console.log(result);
+      result = operate(Number(variableOne), Number(variableTwo), operator);
+
+      // rounds result if it exceeds character limit
       if (String(result).includes(".")) {
         const roundedResult = parseFloat(result.toFixed(6));
-        console.log(roundedResult);
         display.textContent = roundedResult;
         variableOne = roundedResult;
         variableTwo = "";
@@ -77,6 +89,7 @@ operators.forEach((button) => {
   });
 });
 
+// sets functionality for clear button
 const clear = document.querySelector("#clear");
 clear.addEventListener("click", () => {
   display.textContent = "";
@@ -84,6 +97,8 @@ clear.addEventListener("click", () => {
   variableTwo = "";
   operator = "";
 });
+
+// sets functionality for sign change button
 const sign = document.querySelector("#sign");
 sign.addEventListener("click", () => {
   if (operator === "" && variableTwo === "") {
@@ -102,5 +117,19 @@ sign.addEventListener("click", () => {
       variableTwo = "-" + variableTwo;
     }
     display.textContent = variableTwo;
+  }
+});
+
+// sets functionality for percentage button
+const percentage = document.querySelector("#percentage");
+percentage.addEventListener("click", () => {
+  if (variableOne && !variableTwo) {
+    const percentageResult = Number(variableOne) / 100;
+    variableOne = percentageResult;
+    display.textContent = percentageResult;
+  } else if (variableTwo) {
+    const percentageResult = Number(variableTwo) / 100;
+    variableTwo = percentageResult;
+    display.textContent = percentageResult;
   }
 });
