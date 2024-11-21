@@ -31,6 +31,12 @@ buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const value = button.textContent;
     if (result) {
+      if (operator) {
+        variableOne = result;
+        variableTwo += value;
+        display.textContent = value;
+        return;
+      }
       variableOne = value;
       variableTwo = "";
       result = "";
@@ -38,8 +44,12 @@ buttons.forEach((button) => {
       display.textContent = value;
       return;
     }
+
     if (!operator) {
-      if (variableOne.length >= 7) {
+      if (
+        variableOne.length >= 7 ||
+        (variableOne.includes(".") && value === ".")
+      ) {
         return;
       }
       variableOne += value;
@@ -47,7 +57,10 @@ buttons.forEach((button) => {
       if (!variableTwo) {
         display.textContent = "";
       }
-      if (variableTwo.length >= 7) {
+      if (
+        variableTwo.length >= 7 ||
+        (variableTwo.includes(".") && value === ".")
+      ) {
         return;
       }
       variableTwo += value;
@@ -72,7 +85,7 @@ operators.forEach((button) => {
       result = operate(Number(variableOne), Number(variableTwo), operator);
 
       // rounds result if it exceeds character limit
-      if (String(result).includes(".")) {
+      if (`${result}`.includes(".")) {
         const roundedResult = parseFloat(result.toFixed(6));
         display.textContent = roundedResult;
         variableOne = roundedResult;
@@ -102,7 +115,7 @@ clear.addEventListener("click", () => {
 const sign = document.querySelector("#sign");
 sign.addEventListener("click", () => {
   if (operator === "" && variableTwo === "") {
-    variableOne = String(variableOne);
+    variableOne = `${variableOne}`;
     if (variableOne.startsWith("-")) {
       variableOne = variableOne.slice(1);
     } else {
@@ -110,7 +123,7 @@ sign.addEventListener("click", () => {
     }
     display.textContent = variableOne;
   } else if (variableTwo) {
-    variableTwo = String(variableTwo);
+    variableTwo = `${variableTwo}`;
     if (variableTwo.startsWith("-")) {
       variableTwo = variableTwo.slice(1);
     } else {
